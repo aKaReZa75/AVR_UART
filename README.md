@@ -451,6 +451,17 @@ if(usart_RxFlag)
 }
 ```
 
+> [!CAUTION]
+Always ensure that global interrupts are enabled using the `sei()` function. Without enabling global interrupts, the microcontroller will not respond to any interrupt triggers.  
+The `sei()` function sets the Global Interrupt Flag (I-bit) in the Status Register (SREG), which allows interrupt requests to be processed by the microcontroller.
+
+You can use the following macros to enable and disable global interrupts:
+
+- **`globalInt_Enable`**: This macro is equivalent to calling `sei()`. It enables global interrupts, allowing the microcontroller to respond to interrupt requests.
+
+- **`globalInt_Disable`**: This macro is equivalent to calling `cli()`. It disables global interrupts, preventing the microcontroller from processing any interrupts.
+
+
 The data is stored in `usart_RxBuffer` and can be processed as needed. Each new line of data will overwrite the previous content in the buffer. The buffer will continue to receive new data as long as the USART interrupt routine is running. After processing the data, calling `usart_Flush()` will clear the buffer and reset the flag, preparing the system to receive the next set of data without any issues.
 
 ### Summary
