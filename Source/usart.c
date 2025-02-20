@@ -95,7 +95,7 @@ ISR(USART_RX_vect)
     usart_errFlag = false;
 
     /* Check for reception errors (Buffer Overflow, Framing Errors, Data Overrun) */
-    usart_errFlag = usart_RxBUfferOVF | __usart_frameError | usart_daraOverRun;
+    usart_errFlag = usart_RxBUfferOVF | usart_frameError | usart_daraOverRun;
 
     _RxData = UDR0; /**< Read received data from the USART data register */
 
