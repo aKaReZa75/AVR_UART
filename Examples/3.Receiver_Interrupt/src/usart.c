@@ -130,10 +130,10 @@ ISR(USART_RX_vect)
 void usart_Write(uint8_t _Data)
 {
     /* Wait until the data register is ready for new data */
-    while(!bitCheck(UCSR0A, UDRE0));
+    bitWaitHigh(UCSR0A, UDRE0);
     UDR0 = _Data;
     /* Wait until transmission is complete */
-    while(!bitCheck(UCSR0A, TXC0));
+    bitWaitHigh(UCSR0A, TXC0);
 };
 
 
@@ -175,10 +175,9 @@ void usart_Putsln(char* _Data)
 uint8_t usart_getChar(void)
 {
     /* Wait for data to be received */
-    while(!bitCheck(UCSR0A, RXC0));    
+    bitWaitHigh(UCSR0A, RXC0);    
     return UDR0;
 };
-
 
 
 /**
