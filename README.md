@@ -468,6 +468,9 @@ The data is stored in `usart_RxBuffer` and can be processed as needed. Each new 
 #include "aKaReZa.h"
 #include "usart.h"
 
+extern bool usart_RxFlag;  
+extern char usart_RxBuffer[__usart_RxBufferSize];  
+
 int main(void) 
 {
     usart_Init(true); /**< Initialize USART */
