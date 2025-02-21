@@ -245,7 +245,10 @@ void usart_Init(bool _initStatus);
  * Initializes the USART module.
  * This function must be called before any other USART function.
  * It configures the baud rate, frame format, and enables both the transmitter and receiver.
- 
+ * @param `_initStatus`:  
+   - If `_initStatus` is set to `Initialize`, the USART module will be configured and enabled.
+   - If `_initStatus` is set to `deInitialize`, the USART module will be disabled and deinitialized. 
+  
 > [!NOTE]
 To modify the default settings (such as baud rate, data bits, stop bits, parity, etc.), 
 the corresponding registers within the UCSR0A, UCSR0B, and UCSR0C registers can be adjusted 
@@ -273,7 +276,7 @@ void usart_Write(uint8_t _Data);
 ```
  * Writes a byte of data to the USART data register.
  * This function waits for the USART data register to be empty before transmitting.
- * @param _Data: The byte of data to transmit.
+ * @param `_Data`: The byte of data to transmit.
  
 **Example:**
 ```c
@@ -298,7 +301,7 @@ void usart_Puts(char* _Data);
 ```
  * Sends a null-terminated string over USART.
  * The string is transmitted byte by byte until the null terminator is reached.
- * @param _Data: The null-terminated string to be transmitted.
+ * @param `_Data`: The null-terminated string to be transmitted.
  
 **Example:**
 ```c
@@ -324,7 +327,7 @@ void usart_Putsln(char* _Data);
 
  * Sends a null-terminated string over USART followed by a carriage return (CR) and newline (NL) character.
  * This is useful for protocols that require both carriage return and line break after each message.
- * @param _Data: The null-terminated string to be transmitted, followed by a carriage return and newline.
+ * @param `_Data`: The null-terminated string to be transmitted, followed by a carriage return and newline.
 
 **Example:**
 ```c
