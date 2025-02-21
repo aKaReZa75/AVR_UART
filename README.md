@@ -2,6 +2,9 @@
 
 The USART (Universal Synchronous and Asynchronous serial Receiver and Transmitter) is a crucial peripheral in the ATmega328 microcontroller, used for serial communication. It supports both asynchronous and synchronous communication modes. This allows the microcontroller to communicate with other devices (such as sensors, computers, or other microcontrollers) via UART or SPI, depending on the configuration.
 
+> [!CAUTION]
+> It is absolutely critical that you carefully read every single word of this document, line by line, to ensure you don't miss any details. Nothing can be overlooked.
+
 ## Registers
 
 The USART module has several control and status registers that define its behavior. These registers are listed below, along with a bit-by-bit explanation for each.
