@@ -231,6 +231,7 @@ Detailed descriptions of these macros can be found at the following link:
 ### Default Settings
 | Setting           | Value                 |
 |-------------------|-----------------------|
+| CPU Frequency     | 16 MHz                |
 | Baud Rate         | 115200                |
 | Data Bits         | 8 bits                |
 | Parity            | None (No Parity)      |
