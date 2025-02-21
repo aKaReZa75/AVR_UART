@@ -223,7 +223,9 @@ These specialized crystals are particularly important in systems where timing ac
 This section provides a detailed description of the functions in the `usart.h` file for handling USART communication on the ATmega328 microcontroller. Each function is designed to manage data transmission and reception through USART, as well as configure the necessary registers.
 
 > [!NOTE]  
-> The macros used in the code below are all defined in the `aKaReZa.h` header file, and detailed descriptions of these macros can be found at the following link:  
+> The library and all of its APIs provided below have been developed by myself.  
+This library utilizes various macros defined in the `aKaReZa.h` header file, which are designed to simplify bitwise operations and register manipulations.    
+Detailed descriptions of these macros can be found at the following link:  
 > [https://github.com/aKaReZa75/AVR/blob/main/Macros.md](https://github.com/aKaReZa75/AVR/blob/main/Macros.md)
 
 ### Default Settings
