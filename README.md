@@ -240,14 +240,12 @@ Detailed descriptions of these macros can be found at the following link:
 
 ### **Initialization**
 ```c
-/*
+void usart_Init(bool _initStatus);
+```
  * Initializes the USART module.
  * This function must be called before any other USART function.
  * It configures the baud rate, frame format, and enables both the transmitter and receiver.
- */ 
-void usart_Init(bool _initStatus);
-```
-
+ 
 > [!NOTE]
 To modify the default settings (such as baud rate, data bits, stop bits, parity, etc.), 
 the corresponding registers within the UCSR0A, UCSR0B, and UCSR0C registers can be adjusted 
@@ -271,15 +269,12 @@ int main(void)
 
 ### **Transmit Data**
 ```c
-/*
- * Writes a byte of data to the USART data register.
- * This function waits for the USART data register to be empty before transmitting.
- * 
- * @param _Data: The byte of data to transmit.
- */ 
 void usart_Write(uint8_t _Data);
 ```
-
+ * Writes a byte of data to the USART data register.
+ * This function waits for the USART data register to be empty before transmitting.
+ * @param _Data: The byte of data to transmit.
+ 
 **Example:**
 ```c
 #include "aKaReZa.h"
@@ -299,15 +294,12 @@ int main(void)
 
 ### **Send String**
 ```c
-/*
- * Sends a null-terminated string over USART.
- * The string is transmitted byte by byte until the null terminator is reached.
- * 
- * @param _Data: The null-terminated string to be transmitted.
- */
 void usart_Puts(char* _Data);
 ```
-
+ * Sends a null-terminated string over USART.
+ * The string is transmitted byte by byte until the null terminator is reached.
+ * @param _Data: The null-terminated string to be transmitted.
+ 
 **Example:**
 ```c
 #include "aKaReZa.h"
@@ -327,14 +319,12 @@ int main(void)
 
 ### **Send String with Null-terminated**
 ```c
-/*
- * Sends a null-terminated string over USART followed by a carriage return (CR) and newline (NL) character.
- * This is useful for protocols that require both carriage return and line break after each message.
- * 
- * @param _Data: The null-terminated string to be transmitted, followed by a carriage return and newline.
- */
 void usart_Putsln(char* _Data);
 ```
+
+ * Sends a null-terminated string over USART followed by a carriage return (CR) and newline (NL) character.
+ * This is useful for protocols that require both carriage return and line break after each message.
+ * @param _Data: The null-terminated string to be transmitted, followed by a carriage return and newline.
 
 **Example:**
 ```c
@@ -354,14 +344,12 @@ int main(void)
 
 ### **Receive Data**
 ```c
-/*
- * Waits for incoming data and returns one byte of data.
- * This function blocks until the data is received.
- * 
- * @return The received byte of data.
- */
 uint8_t usart_getChar(void);
 ```
+
+ * Waits for incoming data and returns one byte of data.
+ * This function blocks until the data is received.
+ * @return The received byte of data.
 
 **Example:**
 ```c
@@ -386,13 +374,12 @@ int main(void)
 
 ### **Flush Buffers**
 ```c
-/*
+void usart_Flush(void);
+```
+
  * Clears the USART receive and transmit buffers.
  * This function ensures that any leftover or unprocessed data is cleared.
  * It can be used to maintain data integrity by flushing the buffers before starting new transmission.
- */ 
-void usart_Flush(void);
-```
 
 **Example:**
 ```c
