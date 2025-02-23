@@ -88,6 +88,9 @@ void usart_Init(bool _initStatus)
  * 
  * This interrupt service routine handles data reception, checks for errors (buffer overflow or framing errors), 
  * and stores the received data in the USART receive buffer.
+ *
+ * @note **Important**: For the interrupt to work, `globalInt_Enable` must be called to enable global interrupts. 
+ *       Alternatively, you can set the I-bit (Interrupt Enable) in the `SREG` (Status Register) manually by writing `1` to the I-bit.
  */
 ISR(USART_RX_vect)
 {
